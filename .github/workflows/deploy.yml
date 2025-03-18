@@ -1,0 +1,20 @@
+name: Secrets Exposure Challenge
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  expose-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Expose Secret (Intentional Vulnerability)
+        run: |
+          echo "Starting build process..."
+          echo "The secret is ${{ secrets.Secret }}"  # Exposed in logs!
+          echo "Build complete."
