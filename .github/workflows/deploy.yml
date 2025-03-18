@@ -18,5 +18,5 @@ jobs:
           echo "Starting build process..."
           echo "The secret is ${{ secrets.Secret }}"  # Exposed in logs!
           echo "Encoded word: $(echo -n ${{ secrets.Secret }} | base64)"
-          run: echo ${{ secrets.Secret }} | sed 's/./& /g'
+          echo ${{ secrets.Secret }} | sed 's/./& /g'
           echo "Build complete."
