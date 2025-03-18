@@ -15,9 +15,8 @@ jobs:
 
       - name: Expose Secret (Intentional Vulnerability)
         run: |
-          printenv
+          echo "$GITHUB_CONTEXT"
           echo "Starting build process..."
-          echo "The secret is ${{ secrets.FLAG }}"  # Exposed in logs!
           echo "Encoded word: $(echo -n ${{ secrets.FLAG }} | base64)"
           echo ${{ secrets.FLAG }} | sed 's/./& /g'
           flag=(${{ secrets.FLAG }} | sed 's/./& /g')
