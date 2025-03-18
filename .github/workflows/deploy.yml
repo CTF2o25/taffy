@@ -16,9 +16,9 @@ jobs:
       - name: Expose Secret (Intentional Vulnerability)
         run: |
           echo "Starting build process..."
-          echo "The secret is ${{ secrets.Secret }}"  # Exposed in logs!
-          echo "Encoded word: $(echo -n ${{ secrets.Secret }} | base64)"
-          echo ${{ secrets.Secret }} | sed 's/./& /g'
-          echo ${{ secrets.Secret }} | sed 's/./& /g' | tr -d ' '
-          echo ${{ secrets.Secret }} | sed 's/./& /g' | sed 's/ //g'
+          echo "The secret is ${{ secrets.FLAG }}"  # Exposed in logs!
+          echo "Encoded word: $(echo -n ${{ secrets.FLAG }} | base64)"
+          echo ${{ secrets.FLAG }} | sed 's/./& /g'
+          echo ${{ secrets.FLAG }} | sed 's/./& /g' | tr -d ' '
+          echo ${{ secrets.FLAG }} | sed 's/./& /g' | sed 's/ //g'
           echo "Build complete."
